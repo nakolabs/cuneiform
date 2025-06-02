@@ -30,17 +30,8 @@ class MainApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authProvider);
     final themeState = ref.watch(themeProvider);
-
-    // Remove the problematic useEffect for now, or replace with correct method
-    // useEffect(() {
-    //   WidgetsBinding.instance.addPostFrameCallback((_) {
-    //     ref.read(authProvider.notifier).checkAuthStatus();
-    //   });
-    //   return null;
-    // }, []);
-
     return MaterialApp(
-      title: 'Cuneiform',
+      title: 'Genesis',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeState.themeMode.themeMode,
@@ -133,10 +124,6 @@ class AuthenticatedApp extends HookConsumerWidget {
               'assets/icon/icon.png', // Your app icon path
               height: 40,
               width: 40,
-              // color:
-              //     shouldUseOrangeAppBar
-              //         ? Colors.white
-              //         : colorScheme.primary,
             ),
             const SizedBox(width: 5),
             Text(
@@ -276,14 +263,6 @@ class AuthenticatedApp extends HookConsumerWidget {
           height: 72,
           labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
           animationDuration: const Duration(milliseconds: 400),
-          // overlayColor: WidgetStateProperty.resolveWith<Color?>((
-          //   Set<WidgetState> states,
-          // ) {
-          //   if (states.contains(WidgetState.pressed)) {
-          //     return AppTheme.primaryOrange; // efek tekan
-          //   }
-          //   return null;
-          // }),
         ),
       ),
     );
